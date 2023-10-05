@@ -26,4 +26,14 @@ class Transaction extends Model
         'updated_at',
         'deleted_at'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'users_id', 'id');
+    }
+
+    public function transaction_item()
+    {
+        return $this->hasMany(TransactionItem::class, 'transactions_id', 'id');
+    }
 }

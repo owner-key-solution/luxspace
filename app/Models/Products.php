@@ -20,4 +20,9 @@ class Products extends Model
         'updated_at',
         'deleted_at'
     ];
+
+    public function product_gallery()
+    {
+        return $this->hasMany(ProductGallery::class, 'products_id', 'id');
+    }
 }

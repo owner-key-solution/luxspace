@@ -16,4 +16,9 @@ class TransactionItem extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function product()
+    {
+        return $this->hasOne(Product::class, 'products_id', 'id');
+    }
 }

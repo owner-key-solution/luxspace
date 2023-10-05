@@ -15,4 +15,14 @@ class Cart extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function product()
+    {
+        return $this->hasOne(Product::class, 'id', 'products_id');
+    }
+
+    public function users()
+    {
+        return $this->belogsTo(User::class, 'users_id', 'id');
+    }
 }
