@@ -1,8 +1,10 @@
-<header class="absolute w-full z-50 px-4">
+<header class="{{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }} w-full z-50 px-4">
     <div class="container mx-auto py-5">
         <div class="flex flex-stretch items-center">
             <div class="w-56 items-center flex">
-                <img src="{{ asset('frontend/images/content/logo.png') }}" alt="Luxspace | Fulfill your house with beautiful furniture" />
+                <a href="{{ route('index') }}">
+                    <img src="{{ asset('frontend/images/content/logo.png') }}" alt="Luxspace | Fulfill your house with beautiful furniture" />
+                </a>
             </div>
             <div class="w-full"></div>
             <div class="w-auto">
