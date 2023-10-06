@@ -10,6 +10,9 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
+        {{-- CDN Tailwind --}}
+        <script src="https://cdn.tailwindcss.com"></script>
+
         <!-- Styles -->
         @livewireStyles
 
@@ -81,9 +84,6 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-
-        {{-- CDN Tailwind --}}
-        <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
@@ -109,7 +109,7 @@
         @stack('modals')
 
         @livewireScripts
-        <!--- Tambahkan setelah @livewireScripts --->
+        <!--- Tambahkan setelah --->
         {{-- jika ada script yg dikirim dari controller maka jalankan script --}}
         {{-- jika tidak ada maka kosongkan --}}
         {{ $script ?? '' }}

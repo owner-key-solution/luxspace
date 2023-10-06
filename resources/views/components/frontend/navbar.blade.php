@@ -1,4 +1,4 @@
-<header class="{{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }} w-full z-50 px-4">
+<header class="{{ \Route::current()->getName() == 'index' ? 'absolute' : '' }} w-full z-50 px-4">
     <div class="container mx-auto py-5">
         <div class="flex flex-stretch items-center">
             <div class="w-56 items-center flex">
