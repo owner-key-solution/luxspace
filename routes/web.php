@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\DashboardController;
 
@@ -22,6 +23,10 @@ Route::get('/checkout/success', [FrontendController::class, 'success'])->name('c
 
 Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('dashboard')->group(function() {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
+
+    Route::middleware(['admin'])->group(function() {
+        Route::resource('product', ProductController::class);
+    });
 });
 
 // Route::middleware([
