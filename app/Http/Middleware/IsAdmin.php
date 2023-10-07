@@ -23,6 +23,6 @@ class IsAdmin
         }
 
         // jika tidak maka redirect ke halaman frontend
-        return redirect('/');
+        return redirect()->route('index');
     }
 }
