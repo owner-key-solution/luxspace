@@ -97,9 +97,18 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, Product $product)
     {
-        //
+        // mengambil semua data yg dikirimkan di request
+        $data = $request->all();
+
+        // mengubah nama slug dengan menggenerate dari class Str
+        $data['slug'] = Str::slug($request->name);
+
+        // mengupdate data product di database
+        $product->update($data);
+
+        return redirect()->route('dashboard.product.index');
     }
 
     /**
