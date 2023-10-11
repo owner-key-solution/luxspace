@@ -26,7 +26,7 @@
                     </div>
                 @endif
 
-                <form action="{{route('dashboard.product.store')}}" enctype="multipart/form-data" class="w-full">
+                <form action="{{route('dashboard.product.store')}}" method="post" enctype="multipart/form-data" class="w-full">
                     @csrf
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
