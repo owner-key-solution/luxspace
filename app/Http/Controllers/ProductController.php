@@ -27,7 +27,7 @@ class ProductController extends Controller
                                 })
                                 ->addColumn('action', function($item) {
                                     return '
-                                        <a href="'.route('dashboard.product.edit',$item->id).'">
+                                        <a href="'.route('dashboard.product.edit',$item->id).'" class="bg-gray-500 text-white rounded-md px-2 py-1 m-2">
                                             Edit
                                         </a>
 
