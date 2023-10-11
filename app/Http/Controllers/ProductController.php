@@ -25,6 +25,14 @@ class ProductController extends Controller
                                 ->editColumn('price', function($item) {
                                     return number_format($item->price);
                                 })
+                                ->addColumn('action', function($item) {
+                                    return '
+                                        <a href="'.route('dashboard.product.edit',$item->id).'">
+                                            Edit
+                                        </a>
+                                    ';
+                                })
+                                ->rawColumns(['action'])
                                 ->make();
         }
 
@@ -77,9 +85,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+        return view('pages.dashboard.product.edit', ['item' => $product]);
     }
 
     /**
