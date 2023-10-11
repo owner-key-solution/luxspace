@@ -35,6 +35,10 @@ class ProductController extends Controller
                                             '.csrf_field().method_field('DELETE').'
                                             <button class="bg-red-500 text-white rounded-md px-2 py-1 m-2">Hapus</button>
                                         </form>
+
+                                        <a href="'.route('dashboard.product.gallery.index', $item->id).'" class="bg-blue-500 text-white rounded-md px-2 py-1 m-2">
+                                            Gallery
+                                        </a>
                                     ';
                                 })
                                 ->rawColumns(['action'])
