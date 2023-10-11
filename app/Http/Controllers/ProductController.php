@@ -30,6 +30,11 @@ class ProductController extends Controller
                                         <a href="'.route('dashboard.product.edit',$item->id).'">
                                             Edit
                                         </a>
+
+                                        <form action="'.route('dashboard.product.destroy', $item->id).'" method="POST" class="inline-block">
+                                            '.csrf_field().method_field('DELETE').'
+                                            <button class="bg-red-500 text-white rounded-md px-2 py-1 m-2">Hapus</button>
+                                        </form>
                                     ';
                                 })
                                 ->rawColumns(['action'])
@@ -117,8 +122,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        // menghapus data product di database
+        $product->delete();
+
+        return redirect()->route('dashboard.product.index');
     }
 }
