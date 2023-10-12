@@ -6,6 +6,7 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Models\TransactionItem;
 use Yajra\DataTables\Facades\DataTables;
+use App\Http\Requests\TransactionRequest;
 
 class TransactionController extends Controller
 {
@@ -101,9 +102,13 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TransactionRequest $request, Transaction $transaction)
     {
-        //
+        $data = $request->all();
+
+        $transaction->update($data);
+
+        return redirect()->route('dashboard.transaction.index');
     }
 
     /**
