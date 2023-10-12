@@ -26,7 +26,7 @@
                     </div>
                 @endif
 
-                <form action="{{route('dashboard.product.update', $item->id)}}" method="post" enctype="multipart/form-data" class="w-full">
+                <form action="{{route('dashboard.user.update', $item->id)}}" method="post" enctype="multipart/form-data" class="w-full">
                     @csrf
                     @method('PUT')
                     <div class="flex flex-wrap -mx-3 mb-6">
@@ -43,8 +43,8 @@
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <label for="status" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Status</label>
-                            <select name="status" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                            <label for="roles" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Roles</label>
+                            <select name="roles" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                 <option value="{{$item->roles}}">{{$item->roles}}</option>
                                 <option disabled>-----</option>
                                 <option value="ADMIN">ADMIN</option>
