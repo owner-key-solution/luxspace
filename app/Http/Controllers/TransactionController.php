@@ -89,9 +89,9 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Transaction $transaction)
     {
-        //
+        return view('pages.dashboard.transaction.edit', ['item' => $transaction]);
     }
 
     /**
