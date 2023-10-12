@@ -17,7 +17,10 @@ class FrontendController extends Controller
 
     public function details(Request $request, $slug)
     {
-        return view('pages.frontend.details');
+        // mengambil data gallery menggunakan relasi dengan table product, berdasarkan nama slug, dan jika data tidak ada maka tampilkan halaman 404
+        $product = Product::with(['galleries'])->where('slug',$slug)->firstOrFail();
+
+        return view('pages.frontend.details', compact('product'));
     }
 
     public function cart(Request $request)
