@@ -11,16 +11,16 @@
                 <ul class="fixed bg-white inset-0 flex flex-col invisible items-center justify-center opacity-0 md:visible md:flex-row md:bg-transparent md:relative md:opacity-100 md:flex md:items-center"
                     id="menu">
                     <li class="mx-3 py-6 md:py-0">
-                        <a href="#" class="text-black md:text-white hover:underline">Showcase</a>
+                        <a href="#" class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }}  hover:underline">Showcase</a>
                     </li>
                     <li class="mx-3 py-6 md:py-0">
-                        <a href="#" class="text-black md:text-white hover:underline">Catalog</a>
+                        <a href="#" class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }} hover:underline">Catalog</a>
                     </li>
                     <li class="mx-3 py-6 md:py-0">
-                        <a href="#" class="text-black md:text-white hover:underline">Delivery</a>
+                        <a href="#" class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }} hover:underline">Delivery</a>
                     </li>
                     <li class="mx-3 py-6 md:py-0">
-                        <a href="#" class="text-black md:text-white hover:underline">Rewards</a>
+                        <a href="#" class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }} hover:underline">Rewards</a>
                     </li>
                 </ul>
             </div>
@@ -41,7 +41,7 @@
                     </li>
                     <li class="ml-6">
                         <a id="header-cart"
-                            class="flex items-center justify-center w-8 h-8 text-black md:text-white"
+                            class="flex items-center justify-center w-8 h-8 text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }}"
                             href="cart.html">
                             <svg class="fill-current" width="26" height="24" viewBox="0 0 26 24">
                                 <path
