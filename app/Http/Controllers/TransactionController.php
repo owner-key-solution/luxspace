@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use App\Models\TransactionItem;
 use Yajra\DataTables\Facades\DataTables;
 
 class TransactionController extends Controller
@@ -67,9 +68,19 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Transaction $transaction)
     {
-        //
+        if(request()->ajax()) {
+            $query = TransactionItem::with(['product'])->where('transactions_id', $transaction->id);
+
+            return DataTables::of($query)
+                                ->editColumn('product.price', function($item) {
+                                    return number_format($item->product->price);
+                                })
+                                ->make();
+        }
+
+        return view('pages.dashboard.transaction.show', compact('transaction'));
     }
 
     /**
